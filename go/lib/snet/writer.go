@@ -36,6 +36,23 @@ type scionConnWriter struct {
 	buffer common.RawBytes
 }
 
+// Custom getters
+func (c *scionConnWriter) Base() *scionConnBase {
+	return c.base
+}
+
+func (c *scionConnWriter) Conn() *PacketConn {
+	return &c.conn
+}
+
+func (c *scionConnWriter) Mtx() *sync.Mutex {
+	return &c.mtx
+}
+
+func (c *scionConnWriter) Buffer() *common.RawBytes {
+	return &c.buffer
+}
+
 func newScionConnWriter(base *scionConnBase, querier PathQuerier,
 	conn PacketConn) *scionConnWriter {
 
