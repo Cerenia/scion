@@ -62,6 +62,10 @@ type Conn struct {
 	scionConnReader
 }
 
+func GetPacketConn(conn Conn) PacketConn{
+	return conn.conn
+}
+
 func newConn(base *scionConnBase, querier PathQuerier, conn PacketConn) *Conn {
 	c := &Conn{
 		conn:          conn,
